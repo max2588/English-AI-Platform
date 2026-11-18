@@ -64,3 +64,14 @@ textarea { display: block; width: 100%; border-radius: 12px; border: 1.5px solid
 .note { font-size: 12px; margin-bottom: 0; }
 footer { padding: 9px; text-align: center; color: #819187; font-size: 11px; }
 @media (max-width: 540px) { .layout { width: min(100% - 22px, 850px); margin-top: 14px; } .brand { font-size: 18px; } .intro { padding: 25px 22px; } .panel { padding: 20px 17px; border-radius: 17px; } .lesson-buttons { grid-template-columns: 1fr; } .options { grid-template-columns: 1fr; } .ai-actions { flex-direction: column; } .section-heading { align-items: flex-start; } }
+/* Dify retrieval test panel */
+.kb-panel p {line-height:1.8;}
+.kb-actions{display:flex;gap:10px;align-items:center;margin:12px 0;}
+.kb-actions button{flex:1;}
+.kb-results{margin-top:14px;display:grid;gap:10px;}
+.kb-entry{padding:13px 15px;border:1px solid #d5eade;border-radius:12px;background:#f7fcf8;}
+.kb-entry h3{font-size:14px;margin:0 0 6px;}
+.kb-entry p{font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;color:#365143;}
+.kb-entry .score{font-size:11px;color:#64746a;}
+.ai-source-note{font-size:12px;color:#486750;margin-top:10px;line-height:1.7;}
+@media(max-width:540px){.kb-actions{flex-direction:column;align-items:stretch;}}
