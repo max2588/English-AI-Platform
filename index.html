@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#eff9f1">
-  <meta name="description" content="測試。">
-  <title>English Adventure V2 | AI 英文學習平台</title>
+  <meta name="description" content="英文題庫、文法知識點與 Dify 知識庫與 Gemini AI 教學整合測試。">
+  <title>English Adventure V3 | Dify 知識庫測試</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
 </head>
@@ -14,8 +14,8 @@
     <header class="site-header">
       <div class="brand-mark" aria-hidden="true">EA</div>
       <div>
-        <div class="brand">English Adventure <span class="version">V2</span></div>
-        <div class="subtitle">測試</div>
+        <div class="brand">English Adventure <span class="version">V3</span></div>
+        <div class="subtitle">英文教材 × 題庫 × Dify RAG × Gemini AI｜功能整合測試</div>
       </div>
     </header>
 
@@ -23,11 +23,11 @@
       <span class="eyebrow">WELCOME TO YOUR ENGLISH JOURNEY</span>
       <h1 id="page-title">每天練習一點點，<br>英文進步看得見。</h1>
       <p>先閱讀知識點，再回答幾題英文。遇到不懂的地方，試著請 AI 老師解釋。</p>
-      <div class="chips"><span>📘 2 個文法單元</span><span>✏️ 6 題測試題庫</span><span>✨ AI 問答</span></div>
+      <div class="chips"><span>📘 2 個文法單元</span><span>✏️ 6 題測試題庫</span><span>✨ Gemini AI 問答</span><span>🔎 Dify 知識庫檢索</span></div>
     </section>
 
     <section class="lesson-chooser panel" aria-labelledby="lesson-title">
-      <div class="section-heading"><h2 id="lesson-title">選擇英文單元</h2><span class="muted"></span></div>
+      <div class="section-heading"><h2 id="lesson-title">選擇英文單元</h2><span class="muted">教材來自 data/lessons.json</span></div>
       <div id="lesson-buttons" class="lesson-buttons"><p class="muted">載入教材中…</p></div>
     </section>
 
@@ -55,9 +55,19 @@
       </div>
     </section>
 
+    <section class="kb-panel panel" aria-labelledby="kb-title">
+      <div class="section-heading"><h2 id="kb-title">🔎 Dify 知識庫檢索測試</h2><span id="kb-status" class="tiny-pill">檢查 Dify 中…</span></div>
+      <p class="muted">這裡會實際呼叫 Dify Classic Knowledge Base API，顯示搜尋到的教材片段。請先在 Dify 上傳範例教材並設定兩個環境變數。</p>
+      <label for="kb-query">輸入檢索問題：</label>
+      <textarea id="kb-query" rows="2" maxlength="240" placeholder="試試：藍鳥口訣是什麼？">藍鳥口訣是什麼？</textarea>
+      <div class="kb-actions"><button id="kb-search-btn" type="button" class="secondary">搜尋 Dify 教材</button></div>
+      <div id="kb-feedback" class="ai-answer" aria-live="polite" hidden></div>
+      <div id="kb-results" class="kb-results" aria-live="polite"></div>
+    </section>
+
     <section class="ai-panel panel" aria-labelledby="ai-title">
       <div class="section-heading"><h2 id="ai-title">✨ 詢問 AI 英文老師</h2><span id="api-status" class="tiny-pill">檢查 API 中…</span></div>
-      <p class="muted">AI 會參考目前單元的知識點和題目回答。這裡呼叫真正的 Vercel 後端 API。</p>
+      <p class="muted">若 Dify 已設定，AI 會先檢索知識庫，再搭配本單元題目由 Gemini 回答。若未設定 Dify，會延續 V2 的本地教材模式。</p>
       <label for="ask-text">想問 AI 什麼問題？</label>
       <textarea id="ask-text" rows="3" maxlength="240" placeholder="例如：為什麼 She 要搭配 is？可以給我另一個例句嗎？"></textarea>
       <div class="ai-actions">
@@ -65,9 +75,10 @@
         <button type="button" id="ask-btn" class="primary">送出問題給 AI</button>
       </div>
       <div id="ai-answer" class="ai-answer" role="status" aria-live="polite" hidden></div>
+      <div id="ai-source-note" class="ai-source-note" aria-live="polite" hidden></div>
       <p class="note">AI 回覆僅供學習參考。請勿輸入姓名、密碼等個人敏感資料；公開測試期間請控制 API 使用次數。</p>
     </section>
-    <footer>English Adventure V2 · Vercel Functions + Gemini API · 專題測試版</footer>
+    <footer>English Adventure V3 · Vercel Functions + Dify Classic Knowledge API + Gemini · 專題測試版</footer>
   </main>
 </body>
 </html>
