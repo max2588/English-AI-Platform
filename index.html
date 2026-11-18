@@ -1,119 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI 英文學習平台</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #eef7f0;
-      text-align: center;
-      padding: 40px 16px;
-    }
-    .card {
-      max-width: 450px;
-      margin: auto;
-      padding: 30px;
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 4px 15px #0001;
-    }
-    button {
-      display: block;
-      width: 100%;
-      margin: 10px 0;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      background: #f5f5f5;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover { background: #dcfce7; }
-    #result { font-weight: bold; }
-  </style>
+  <meta name="theme-color" content="#eff9f1">
+  <meta name="description" content="英文題庫、文法知識點與 Gemini AI 教學整合測試。">
+  <title>English Adventure V2 | AI 英文學習平台</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
 </head>
-
 <body>
-  <div class="card">
-    <h1>English Adventure</h1>
-    <p>Unit 1：英文基礎</p>
-    <h2 id="question"></h2>
-    <div id="options"></div>
-    <p id="result"></p>
-    <button id="next" onclick="nextQuestion()" hidden>
-      下一題 →
-    </button>
-  </div>
+  <main class="layout">
+    <header class="site-header">
+      <div class="brand-mark" aria-hidden="true">EA</div>
+      <div>
+        <div class="brand">English Adventure <span class="version">V2</span></div>
+        <div class="subtitle">英文教材 × 題庫 × AI 教師｜功能整合測試</div>
+      </div>
+    </header>
 
-  <script>
-    const questions = [
-      {
-        question: "I ___ a student.",
-        options: ["am", "is", "are", "be"],
-        answer: 0
-      },
-      {
-        question: "She ___ happy.",
-        options: ["am", "is", "are", "be"],
-        answer: 1
-      },
-      {
-        question: "They ___ friends.",
-        options: ["am", "is", "are", "be"],
-        answer: 2
-      }
-    ];
+    <section class="intro" aria-labelledby="page-title">
+      <span class="eyebrow">WELCOME TO YOUR ENGLISH JOURNEY</span>
+      <h1 id="page-title">每天練習一點點，<br>英文進步看得見。</h1>
+      <p>先閱讀知識點，再回答幾題英文。遇到不懂的地方，試著請 AI 老師解釋。</p>
+      <div class="chips"><span>📘 2 個文法單元</span><span>✏️ 6 題測試題庫</span><span>✨ AI 問答</span></div>
+    </section>
 
-    let current = 0;
+    <section class="lesson-chooser panel" aria-labelledby="lesson-title">
+      <div class="section-heading"><h2 id="lesson-title">選擇英文單元</h2><span class="muted">教材來自 data/lessons.json</span></div>
+      <div id="lesson-buttons" class="lesson-buttons"><p class="muted">載入教材中…</p></div>
+    </section>
 
-    function showQuestion() {
-      const q = questions[current];
+    <section class="knowledge panel" aria-labelledby="knowledge-heading">
+      <div class="section-heading"><h2 id="knowledge-heading">📚 本單元知識點</h2><span id="lesson-level" class="tiny-pill"></span></div>
+      <h3 id="knowledge-title">準備載入…</h3>
+      <p id="knowledge-description" class="muted"></p>
+      <ul id="knowledge-rules"></ul>
+    </section>
 
-      document.getElementById("question").textContent =
-        q.question;
-      document.getElementById("result").textContent = "";
-      document.getElementById("next").hidden = true;
+    <section class="quiz panel" aria-labelledby="quiz-title">
+      <div class="section-heading"><h2 id="quiz-title">✏️ 英文小測驗</h2><span id="progress-label" class="muted">0 / 0</span></div>
+      <div class="progress-track" aria-hidden="true"><div id="progress-fill" class="progress-fill"></div></div>
+      <div id="quiz-area">
+        <p id="question" class="question">載入中…</p>
+        <div id="options" class="options"></div>
+        <div id="feedback" class="feedback" role="status" hidden></div>
+        <button id="next-btn" class="primary" type="button" hidden>下一題 →</button>
+      </div>
+      <div id="finish-panel" class="finish" hidden>
+        <div class="trophy">🏆</div>
+        <h3>完成這個單元了！</h3>
+        <p id="score-summary"></p>
+        <button id="restart-btn" class="primary" type="button">再練習一次</button>
+      </div>
+    </section>
 
-      const area = document.getElementById("options");
-      area.innerHTML = "";
-
-      q.options.forEach((option, index) => {
-        const btn = document.createElement("button");
-        btn.textContent = option;
-        btn.onclick = () => checkAnswer(index);
-        area.appendChild(btn);
-      });
-    }
-
-    function checkAnswer(choice) {
-      const q = questions[current];
-      const correct = choice === q.answer;
-
-      document.getElementById("result").textContent =
-        correct
-          ? "答對了！Excellent!"
-          : "答錯了！正確答案是 " + q.options[q.answer];
-
-      document.querySelectorAll("#options button")
-        .forEach(btn => btn.disabled = true);
-
-      document.getElementById("next").hidden = false;
-    }
-
-    function nextQuestion() {
-      current++;
-
-      if (current >= questions.length) {
-        current = 0;
-        alert("完成本輪英文練習！");
-      }
-      showQuestion();
-    }
-
-    showQuestion();
-  </script>
+    <section class="ai-panel panel" aria-labelledby="ai-title">
+      <div class="section-heading"><h2 id="ai-title">✨ 詢問 AI 英文老師</h2><span id="api-status" class="tiny-pill">檢查 API 中…</span></div>
+      <p class="muted">AI 會參考目前單元的知識點和題目回答。這裡呼叫真正的 Vercel 後端 API。</p>
+      <label for="ask-text">想問 AI 什麼問題？</label>
+      <textarea id="ask-text" rows="3" maxlength="240" placeholder="例如：為什麼 She 要搭配 is？可以給我另一個例句嗎？"></textarea>
+      <div class="ai-actions">
+        <button type="button" id="explain-btn" class="secondary">解釋目前這一題</button>
+        <button type="button" id="ask-btn" class="primary">送出問題給 AI</button>
+      </div>
+      <div id="ai-answer" class="ai-answer" role="status" aria-live="polite" hidden></div>
+      <p class="note">AI 回覆僅供學習參考。請勿輸入姓名、密碼等個人敏感資料；公開測試期間請控制 API 使用次數。</p>
+    </section>
+    <footer>English Adventure V2 · Vercel Functions + Gemini API · 專題測試版</footer>
+  </main>
 </body>
 </html>
