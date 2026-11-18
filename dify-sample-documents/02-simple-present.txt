@@ -1,15 +1,17 @@
 English Adventure 英文知識庫｜Unit 2：現在簡單式（A1–A2）
 
-現在簡單式常描述習慣、每天會做的事或一般事實。
-I / You / We / They 搭配原形動詞：We play soccer.
-He / She / It 的肯定句動詞通常加 -s 或 -es：She plays piano. He goes to school.
-Do/Does 疑問句：Do you like apples? Does she like English? 在 does 後使用動詞原形。
-第三人稱單數例外：have → has；do → does；go → goes；watch → watches。
+知識點：現在簡單式用於描述習慣、反覆發生的事情及一般事實。
 
-本專題的「藍鳥口訣」是特別設計給學生記憶的文法口訣：
-「單數三人稱，動詞加 s；碰到 s、sh、ch、x、o 常加 es；有 does，動詞回原形。」
-這是 English Adventure 測試 Dify 知識庫用的口訣，不是正式英語文法名稱。
-用法：He goes to school. / Does he go to school?
+I、You、We、They 搭配原形動詞。例如：We play soccer every weekend.
 
-測試問題：藍鳥口訣是什麼？
-正確檢索應找到本文件的「藍鳥口訣」段落。
+He、She、It 的現在簡單式肯定句，動詞通常加 -s 或 -es。例如：She plays the piano. He goes to school.
+
+Do 與 Does 可用來組成疑問句。例如：Do you like apples? Does she like English? 在 Does 後面必須使用動詞原形。
+
+常見變化：have → has；do → does；go → goes；watch → watches。
+
+問：藍鳥口訣是什麼？答：藍鳥口訣是「單數三人稱，動詞加 s；碰到 s、sh、ch、x、o 常加 es；有 does，動詞回原形。」這是 English Adventure 專題自訂的記憶方法，不是正式的英文文法術語。
+
+例句：He goes to school.（肯定句，go → goes。）Does he go to school?（疑問句，does 後使用 go。）
+
+注意：口訣是初學者的快速記憶法，英文拼字還有其他例外與變化；例如子音字母加 y 結尾的動詞，第三人稱單數通常將 y 改成 ies（study → studies），不要把口訣當作全部規則。
